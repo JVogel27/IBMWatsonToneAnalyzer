@@ -11,41 +11,67 @@ var url = 'http://api-platform.mybluemix.net/marketplace/api/catalog/v1/products
             "Accept":"application/json"
         }
     },
-    productlist = [];
+    Q = require('q');
 
-function getProductTone (url) {
-    request.get(req, function (error, response, body) {
-        if (error || response.statusCode > 399) {
-            console.log('Cant find page');
-        } else {
-            var list = JSON.parse(body).data;
-            list = list.slice(0,1);
-            list.map(function(product) {
-                var prodInfo = {
-                    name: product.name,
-                    description: product.longDescription,
-                    tone: {},
-                    benefits: []
-                };
-                toneAnalyzer.analyzeTone(product.longDescription).then(function(tone) {
-                    prodInfo.tone = tone;
-                    productlist.push(prodInfo);
-                });
-                if(product.hasOwnProperty('benefits')) {
-                    product.benefits.forEach(function(benefit) {
-                        toneAnalyzer.analyzeTone(benefit.description).then(function(tone) {
-                            benefit.tone = tone;
-                            benefits.push(benefit);
-                        });
-                    });
-                }
+
+function getText(list) {
+    var deferred = Q.defer(),
+        productList = [];
+
+    list.map(function(product) {
+        var prodInfo = {
+                name: product.name,
+                text: '',
+                tone: {}
+            },
+            text;
+
+        prodInfo.text = 'description' + '\n' + product.description + '\n\n';
+        if(product.hasOwnProperty('benefits')) {
+            prodInfo.text += 'Benefits\n'
+            product.benefits.map(function(benefit) {
+                prodInfo.text += benefit.title + '\n' + benefit.description + '\n\n';
             });
         }
+        productList.push(prodInfo);
     });
+    deferred.resolve(productList);
+    return deferred.promise;
 }
 
-getProductTone(url);
+function getTone(productList) {
+    var deferred = Q.defer();
+
+    productList.map(function (product) {
+        toneAnalyzer.analyzeTone(product.text).then(function(tone) {
+            product.tone = tone.document_tone;
+            deferred.resolve(productList);
+        });
+    })
+    return deferred.promise;
+}
+
+function getProductTone (url) {
+    var deferred = Q.defer();
+
+    request.get(req, function (error, response, body) {
+        if (error || response.statusCode > 399) {
+            deferred.reject({'error': 'Cant find page'});
+        } else {
+            var list = JSON.parse(body).data.slice(0,1);
+            getText(list)
+                .then(getTone)
+                .then(deferred.resolve)
+                .catch(deferred.resolve);
+        }
+    });
+    return deferred.promise;
+}
+
+getProductTone(url).then(function(productList) {
+    console.log(JSON.stringify(productList, null, 2));
+});
 
 module.exports = {
-    getProductTone: getProuctTones
+    getProductTone: getProductTone
 };

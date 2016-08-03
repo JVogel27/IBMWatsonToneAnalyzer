@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/analyze', function(req, res, next){
 	analyzer.analyzeTone(req.body.input).then(function(result){
-		res.render('analyze', {data: result});
+		res.render('results');
+		//res.render('analyze', {data: result});
 	}).catch(function(error){
 		res.render('error', {
 	      message: error.message,

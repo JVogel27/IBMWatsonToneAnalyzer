@@ -1,0 +1,35 @@
+.emotion-wrapper{
+	text-align: center;
+}
+
+.emoji-container{
+	padding-top: 50px;
+}
+
+.tab-content{
+	overflow-y: scroll;
+	height: 400px;
+}
+
+.header{
+	margin-bottom: 21px;
+}
+
+.grade-level{
+	text-align: center;
+	margin-top: 42px;
+    padding-top: 8px;
+}
+
+.grade-level img{
+	max-width: 100%;
+}
+
+.reading-level{
+	font-size: 24px;
+}
+
+a:focus{
+	outline: none;
+}
+

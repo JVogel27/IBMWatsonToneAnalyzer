@@ -4,8 +4,8 @@ module.exports = {
 
 		var watson = require('watson-developer-cloud');
 		var tone_analyzer = watson.tone_analyzer({
-		  username: 'f27be9c7-db9b-4195-a363-8fdb9d0d83b2',
-		  password: 'L3aWmDuFWrFX',
+		  username: '10d590f6-591e-4950-9715-a5efaff49e90',
+		  password: 'JOl3OarYVNwa',
 		  version: 'v3',
 		  version_date: '2016-05-19 '
 		});
@@ -18,16 +18,15 @@ module.exports = {
 				var input = {text: text};
 				tone_analyzer.tone(input, 
 				function(err, tone) {
-					if (err)
+					if (err){
 			  			reject(err);
-					else
+		  			}
+					else{
 			  			resolve(tone, null, 2);
+					}
 				});
 			}
 			
-		});
-	  	
+		});	
   	}
-
-
 };

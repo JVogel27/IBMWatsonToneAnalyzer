@@ -16,7 +16,7 @@ module.exports = {
 			}
 			else{
 				var input = {text: text};
-				tone_analyzer.tone(input, 
+				tone_analyzer.tone(input,
 				function(err, tone) {
 					if (err){
 			  			reject(err);
@@ -26,7 +26,6 @@ module.exports = {
 					}
 				});
 			}
-			
-		});	
+		});
   	}
 };

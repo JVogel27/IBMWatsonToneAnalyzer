@@ -1,0 +1,22 @@
+doctype
+html( lang="en" )
+	head
+		title Tone Analyzer
+		meta( charset='utf-8' )
+		meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+		//- Bootswatch Theme
+		link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+		link(href="./stylesheets/index.css", rel="stylesheet")
+	body
+		div(class='container')
+			div(class='row')
+				div(class="col-sm-12 jumbotron")
+					h1 Watson Tone Analyzer
+					p This service uses linguistic analysis to detect emotional tones, social propensities, and writing styles in written communication. 
+						a(class="learn-more" href="https://www.ibm.com/watson/developercloud/doc/tone-analyzer/index.shtml" target="_blank") Learn more
+					form(id='form' action='analyze' method='post')
+						textarea(rows='4' cols='50' form='form' name='input' placeholder='place text to analyze here..')
+					input(type='submit' form='form' class="btn btn-primary" value="Submit")
+
+		script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+		script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )

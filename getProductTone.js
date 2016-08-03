@@ -20,19 +20,32 @@ function getProductTone (url) {
         } else {
             var list = JSON.parse(body).data;
             list = list.slice(0,1);
-            list.forEach(function(product) {
+            list.map(function(product) {
                 var prodInfo = {
                     name: product.name,
                     description: product.longDescription,
-                    tone : {}
+                    tone: {},
+                    benefits: []
                 };
                 toneAnalyzer.analyzeTone(product.longDescription).then(function(tone) {
                     prodInfo.tone = tone;
                     productlist.push(prodInfo);
                 });
+                if(product.hasOwnProperty('benefits')) {
+                    product.benefits.forEach(function(benefit) {
+                        toneAnalyzer.analyzeTone(benefit.description).then(function(tone) {
+                            benefit.tone = tone;
+                            benefits.push(benefit);
+                        });
+                    });
+                }
             });
         }
     });
 }
 
 getProductTone(url);
+
+module.exports = {
+    getProductTone: getProuctTones
+};

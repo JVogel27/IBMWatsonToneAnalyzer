@@ -1,9 +1,6 @@
 
-
 function clickHandler(){
-	console.log("Handle me!")
-	emotionName = $(".nav-stacked > li.active").text();
-	console.log(emotionName);
+	emotionName = $(this).text();
 	applyFliter(emotionName);
 }
 

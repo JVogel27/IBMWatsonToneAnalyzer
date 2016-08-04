@@ -44,7 +44,7 @@ function getTone(productList) {
 
     productList.map(function (product) {
         toneAnalyzer.analyzeTone(product.text).then(function(tone) {
-            product.tone = tone.document_tone;
+            product.tone = tone;
             deferred.resolve(productList);
         });
     })

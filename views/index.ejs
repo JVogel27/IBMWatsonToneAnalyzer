@@ -450,7 +450,7 @@ select option {border: 1px solid #000; background: #010;}
                              Tone analyzer with Educational grading
                     </h1>
           <div class="banner--service-description">
-            This app analyzes texts and outputs the educational grading, checks for spellings and grammar. Also,it uses the Watson Tone analyzer service to detect and interpret emotions, social tendencies, and language style cues 
+            This app analyzes texts and outputs the educational grading, checks for spellings and grammar. Also,it uses the Watson Tone analyzer service to detect and interpret emotions, social tendencies, and language style cues
             The data used in developing this was obtained from the CASA database and PDPs.
 
           </div>
@@ -491,15 +491,15 @@ select option {border: 1px solid #000; background: #010;}
         <h2 class="base--h2" >Select input data option</h2>
         <p class="base--p input--description">Choose an example to learn how you can adjust the tone of your content to change people's perceptions, or improve its effectiveness. <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tone-analyzer/index.shtml#usecases" target="new">Learn more</a>.</p>
         <input role="radio" class="base--radio input--radio" type="radio" id="input-customer-call" name="rb" onclick="myfunction0()">
-        <label style ="margin-right : 200px;  " class="base--inline-label input--radio-label" for="input-customer-call">Analyze by IBM Products</label>    
+        <label style ="margin-right : 200px;  " class="base--inline-label input--radio-label" for="input-customer-call">Analyze by IBM Products</label>
         <!-- <input role="radio" class="base--radio input--radio" type="radio" id="input-own-text" name="rb" onclick="document.getElementById('myTextArea').value = '';"> -->
         <input role="radio" class="base--radio input--radio" type="radio" id="input-own-text" name="rb" onclick="myfunction()">
-       
+
         <label class="base--inline-label input--radio-label" for="input-own-text">Your own text</label>
-        
-        
-    
-<!-- 
+
+
+
+<!--
         <div class="dropdown">
 				    <button  class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Select Product
 				    <span class="caret"></span></button>
@@ -656,50 +656,38 @@ select option {border: 1px solid #000; background: #010;}
     </article>
   </div>
 
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
-    
+
 </body>
 
 </html>
 <script type="text/javascript">
-	
-	// $("input-own-text").on("click",function(){
-	// 	console.log("I was clicked");
-	// });
 
 	$('#input').on('click', 'label', function (event) {
 		console.log("I was clicked");
 	});
 	function myfunction(){
-		//console.log("this works ");
 		document.getElementById('myTextArea').value = '';
 		$("#dropit").hide();
 		$("#yourText").show();
 	}
 	function myfunction0(){
-			//console.log("this works ");
 			document.getElementById('myTextArea').value = '';
 			$("#dropit").show();
 			$("#yourText").hide();
 
 	}
-	// $('#input label').on('click', function (event) {
- //       console.log("clicked");
-	// });
-	//action
-
-
 
 
 	function buildDropdown(item) {
-	var MyArray = item; 
-	var s = $("<select id=\"myItem\" name=\"myname\" />");
+	var MyArray = item;
+	var s = $("<select form =\"form\"  id=\"myItem\" name=\"myname\" />");
 	var dropdown = $(document).ready(function() {
 
 			for (var val in MyArray) {
-	                $('<option />', {
+                 $('<option />', {
 	                    value: val,
+                      form: "form",
+                      name: "productName",
 	                    text: MyArray[val].name
 	                }).appendTo(s);
 	            }
@@ -709,34 +697,25 @@ select option {border: 1px solid #000; background: #010;}
 
 	}
 
-	
+
 	function dropdownEventListener(Item){
-		
+
 		$("#myItem").change(function(){
 			var selectedindex = $(this).val();
 			var productText = Item[selectedindex].name;
 			var productDescription = Item[selectedindex].text;
-			//console.log(productText);
-			// Item.forEach(function(subitem){
-
-			// });
-			//$("#dropit").hide();
 			document.getElementById("myTextArea").value = productDescription;
 		});
 	}
 
+  var MyArray;
+  $.getJSON("./output.json", function(item){
+    MyArray = item;
+     console.log(MyArray);
+  $("#dropit").hide();
+  $("#yourText").hide();
+  buildDropdown(MyArray);
+  });
 
-	//get object passed from server-side query
-	//var MyArray = <%-JSON.stringify(productList)%>;
-
-	//hide elements by default
-	$("#dropit").hide();
-	$("#yourText").hide();
-	buildDropdown(MyArray);
-    console.log(MyArray);
-		
 
 </script>
-
-
-

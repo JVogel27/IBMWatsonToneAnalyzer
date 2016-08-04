@@ -11,32 +11,32 @@
 
  <div class="container">
  	<section class="row">
- 		<h1 class="header">Document Tone</h1>
- 		<div class="col-sm-12 well emoji-container">
- 			<div class="emotion-wrapper col-sm-2 col-sm-offset-1">
+ 		<h1 class="header">Tone Analysis Overview</h1>
+ 		<div class="col-xs-12 well emoji-container">
+ 			<div class="emotion-wrapper col-xs-2 col-xs-offset-1">
  				<img src="./images/anger.png"/>
  				<h3>Anger</h3>
- 				<h3></h3>
+ 				<h3><%= data.tone.document_tone.tone_categories[0].tones[0].score.toFixed(2) %></h3>
  			</div>
- 			<div class="emotion-wrapper col-sm-2">
+ 			<div class="emotion-wrapper col-xs-2">
  				<img src="./images/disgust.png"/>
  				<h3>Disgust</h3>
- 				<h3></h3>
+ 				<h3><%= data.tone.document_tone.tone_categories[0].tones[1].score.toFixed(2) %></h3>
  			</div>
- 			<div class="emotion-wrapper col-sm-2">
+ 			<div class="emotion-wrapper col-xs-2">
  				<img src="./images/fear.png"/>
  				<h3>Fear</h3>
- 				<h3></h3>
+ 				<h3><%= data.tone.document_tone.tone_categories[0].tones[2].score.toFixed(2) %></h3>
  			</div>
- 			<div class="emotion-wrapper col-sm-2">
+ 			<div class="emotion-wrapper col-xs-2">
  				<img src="./images/joy.png"/>
  				<h3>Joy</h3>
- 				<h3></h3>
+ 				<h3><%= data.tone.document_tone.tone_categories[0].tones[3].score.toFixed(2) %></h3>
  			</div>
- 			<div class="emotion-wrapper col-sm-2">
+ 			<div class="emotion-wrapper col-xs-2">
  				<img src="./images/sadness.png"/>
  				<h3>Sadness</h3>
- 				<h3></h3>
+ 				<h3><%= data.tone.document_tone.tone_categories[0].tones[4].score.toFixed(2) %></h3>
  			</div>
 
  		</div>
@@ -44,48 +44,36 @@
  	<section class="row">
  		<h1 class="header">Breakdown by Sentence</h1>
  		<div class="row">
-			<div class="filter-select col-sm-3">
+			<div class="filter-select col-xs-3">
 				<h2>Emotional Tone</h2>
 			    <ul class="nav nav-pills nav-stacked" data-tabs="tabs">
-	                <li class="active"><a href="#anger" data-toggle="tab" onclick="console.log('Implement me!')">Anger</a></li>
-	                <li><a href="#disgust" data-toggle="tab" onclick="console.log('Implement me!')">Disgust</a></li>
-	                <li><a href="#fear" data-toggle="tab" onclick="console.log('Implement me!')">Fear</a></li>
-	                <li><a href="#joy" data-toggle="tab" onclick="console.log('Implement me!')">Joy</a></li>
-	                <li><a href="#sadness" data-toggle="tab" onclick="console.log('Implement me!')">Sadness</a></li>
+	                <li class="active"><a href="#anger" data-toggle="tab">Anger</a></li>
+	                <li><a href="#disgust" data-toggle="tab">Disgust</a></li>
+	                <li><a href="#fear" data-toggle="tab">Fear</a></li>
+	                <li><a href="#joy" data-toggle="tab">Joy</a></li>
+	                <li><a href="#sadness" data-toggle="tab">Sadness</a></li>
 					<h2>Errors</h2>
-	                <li><a href="#spelling" data-toggle="tab" onclick="console.log('Implement me!')">Spelling</a></li>
-	                <li><a href="#grammar" data-toggle="tab" onclick="console.log('Implement me!')">Grammar</a></li>
+	                <li><a href="#spelling" data-toggle="tab">Spelling</a></li>
+	                <li><a href="#grammar" data-toggle="tab">Grammar</a></li>
 	            </ul>
 			</div>
-			<div class="display-results col-sm-6">
+			<div class="display-results col-xs-6">
 			    <ul class="nav nav-tabs" data-tabs="tabs">
 	                <li class="active"><a href="#context" data-toggle="tab">Context</a></li>
 	                <li><a href="#ranked" data-toggle="tab">Ranked by Score</a></li>
 	            </ul>
 	            <div class="tab-content well">
 	                <div class="tab-pane active" id="context">
-	                    <h1>Red</h1>
-	                    <p>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis leo sit amet nunc finibus facilisis sed ac diam. Proin semper diam nisi. Vestibulum id dui eget nisi ultrices semper. Nam ultrices nec lorem a cursus. Nullam faucibus sodales justo eu consequat. Maecenas a tortor eget enim aliquam interdum porttitor quis diam. Praesent luctus urna ac eros varius, ac vehicula odio lacinia. Integer non egestas erat. Vestibulum blandit eros a varius sodales.
-
-Nullam at neque ornare, mattis neque non, laoreet lorem. Fusce ornare lacus quis elit placerat blandit eget vitae felis. Pellentesque elementum venenatis felis in rhoncus. Suspendisse sed erat fermentum, dapibus lacus sed, commodo tortor. Cras dapibus ante vel est dignissim, id facilisis diam finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer aliquet arcu odio, ornare ultrices tortor pharetra nec. Sed ex quam, ultricies ac euismod ac, dignissim et arcu. Vestibulum ex turpis, rutrum vel elit ac, aliquet dignissim nisi. Donec laoreet eros non eleifend cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam eget risus mollis, varius nunc ac, porttitor magna. Integer suscipit bibendum lorem, eu sodales dolor tempus non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-Cras ut lectus pharetra, pulvinar nibh vitae, feugiat enim. Vivamus tempor placerat purus in volutpat. Nulla et imperdiet orci. Praesent quis arcu dolor. In viverra massa rutrum, consequat lectus vel, dictum nulla. Fusce volutpat ligula nec sem sodales, quis pretium elit sagittis. Vivamus eget tempus dui, sit amet ultricies lacus. Integer at tortor ac massa fringilla molestie ac vitae nunc. Sed facilisis ut turpis eget varius. Etiam lectus turpis, cursus eu rhoncus a, faucibus id dolor. Integer ut ullamcorper quam. Phasellus tempus lorem at eros sodales lacinia. Quisque tempor eleifend diam fringilla sagittis. Pellentesque iaculis nec est eu congue. Vestibulum ultricies dolor ligula, ut suscipit magna viverra at.
-
-Mauris sed augue ornare augue posuere faucibus. Mauris id erat sapien. Vivamus auctor laoreet tortor, quis aliquam nunc suscipit quis. Nam dapibus dolor vel nisl commodo cursus. Donec eget massa suscipit, mattis massa at, fermentum erat. Donec vitae consequat ante, non consequat urna. Proin eu tellus vel ligula fermentum imperdiet eu vitae ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut hendrerit, sem non pretium sollicitudin, metus leo maximus ex, nec suscipit nulla purus et tortor.
-
-Duis eget odio posuere, facilisis erat a, commodo mi. Nunc ultricies pharetra elit, vel posuere mi lobortis ac. Nullam id mauris nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque sapien nisl, euismod ac risus eu, ultricies ornare quam. Nunc eleifend sem sapien. Phasellus faucibus porta odio, at placerat ligula egestas vel. Donec rutrum a nunc a laoreet. Donec at lectus risus. Sed vel ex efficitur, tempus felis vel, ullamcorper nisl. Nullam sit amet mattis mi, ac porttitor magna. Pellentesque semper ante eget ipsum porttitor, non feugiat augue sodales. Aliquam egestas, lorem at rutrum ullamcorper, dolor magna efficitur arcu, nec imperdiet purus mi ut dolor. Curabitur viverra, velit sed euismod iaculis, enim libero egestas turpis, in commodo ipsum sapien sit amet lorem. Nulla non sem ullamcorper, sagittis nunc ac, cursus neque. </p>
+	                    <p></p>
 	                </div>
 	                <div class="tab-pane" id="ranked">
-	                    <h1>Orange</h1>
-	                    <p>orange orange orange orange orange</p>
+	                    <p></p>
 	                </div>
 	            </div>
 				<div class="results">
 				</div>
 			</div>
-			<div class="grade-level col-sm-3">
+			<div class="grade-level col-xs-3">
 				<img src="./images/bear.gif"/>
 				<h3 class="reading-level">Reading Level: 5th grade</h3>
 				<h4>This is pretty easy to read.</h4>
@@ -95,6 +83,10 @@ Duis eget odio posuere, facilisis erat a, commodo mi. Nunc ultricies pharetra el
  	</section>
  </div>
  	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>  
+ 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+ 	<script type="text/javascript"> 
+ 		var data = <%-JSON.stringify(data)%>
+ 	</script>
+ 	<script type="text/javascript" src="./javascripts/results.js"> </script> 
  </body>
  </html>

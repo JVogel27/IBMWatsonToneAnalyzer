@@ -47,6 +47,16 @@ a:focus{
 	outline: none;
 }
 
+.footer{
+	margin-bottom: 100px;
+}
+
+.go-again{
+	display: block;
+	width: 160px;
+	margin: auto;
+}
+
 /*Emotion Filters*/
 .anger-min{
 	background-color: #f8d3d9;

@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/analyze', function(req, res, next){
 	analyzer.analyzeTone(req.body.input).then(function(result){
-		//console.log("Result", result.sentences_tone);
 		res.render('results', {data: {name: "Name", text: "Text", tone: result}});
 	}).catch(function(error){
 		res.render('error', {

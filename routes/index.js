@@ -2,15 +2,10 @@ var express = require('express');
 var analyzer = require('../analyzer');
 var router = express.Router();
 var request = require('request');
-var getProductObj = require('../getProductTone');
 
 router.get('/', function(req, res, next) {
 
-	getProductObj.getProductTone().then(function(productList) {
-		res.render('index',{
-			productList:productList
-		});
-	});
+	res.render('index');
 });
 
 router.post('/analyze', function(req, res, next){

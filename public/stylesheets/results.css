@@ -57,6 +57,23 @@ a:focus{
 	margin: auto;
 }
 
+.sentence-wrapper{
+	width: 100%;
+	padding: 5px;
+	background: white;
+	margin: 5px 0px;
+}
+
+.sentence-score{
+	display: inline-block;
+	width: 30%;
+}
+
+.sentence-wrapper .sentence{
+	display: inline-block;
+	width: 70%;
+}
+
 /*Emotion Filters*/
 .anger-min{
 	background-color: #f8d3d9;

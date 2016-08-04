@@ -57,7 +57,7 @@
 	                <li><a href="#grammar" data-toggle="tab">Grammar</a></li>
 	            </ul>
 			</div>
-			<div class="display-results col-xs-9">
+			<div class="display-results col-xs-6">
 			    <ul class="nav nav-tabs" data-tabs="tabs">
 	                <li class="active"><a href="#context" data-toggle="tab">Context</a></li>
 	                <li><a href="#ranked" data-toggle="tab">Ranked by Score</a></li>
@@ -73,10 +73,10 @@
 				<div class="results">
 				</div>
 			</div>
-			<div class="hidden grade-level col-xs-3">
+			<div class="grade-level col-xs-3">
 				<img src="./images/bear.gif"/>
-				<h3 class="reading-level">Reading Level: 5th grade</h3>
-				<h4>This is pretty easy to read.</h4>
+				<h3 class="reading-level">Reading Level: <%= scoreObj.schoolLevel%></h3>
+				<h4><%= scoreObj.description %></h4>
 			</div>
  		</div>
  	</section>
@@ -87,10 +87,10 @@
  	</section>
  </div>
  	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
- 	<script type="text/javascript"> 
+ 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+ 	<script type="text/javascript">
  		var data = <%-JSON.stringify(data)%>
  	</script>
- 	<script type="text/javascript" src="./javascripts/results.js"> </script> 
+ 	<script type="text/javascript" src="./javascripts/results.js"> </script>
  </body>
  </html>

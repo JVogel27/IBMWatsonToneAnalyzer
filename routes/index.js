@@ -44,4 +44,3 @@ router.post('/analyze-product', function(req, res, next){
 });
 
 module.exports = router;
-

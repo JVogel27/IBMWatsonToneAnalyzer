@@ -26,11 +26,11 @@ function applyFliter(emotionName){
 			else{
 				className = emotionName.toLowerCase() + "-high";
 			}
-			sentenceMarkup = "<span class=" + className + ">" + sentence + " </span>";
+			sentenceMarkup = "<span class=" + className + ">" + sentence + "</br>" + " </span>";
 			result += sentenceMarkup;
 		}
 		else{
-			sentenceMarkup = "<span class=no-score>" + sentence + " </span>";
+			sentenceMarkup = "<span class=no-score>" + sentence + "</br>" + "</span>";
 			result += sentenceMarkup;
 		}
 	});

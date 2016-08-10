@@ -57,6 +57,12 @@ a:focus{
 	margin: auto;
 }
 
+.rectangle{
+	border: none;
+	width: 150px;
+	/*height: 20px;*/
+}
+
 .sentence-wrapper{
 	width: 100%;
 	padding: 5px;
@@ -94,7 +100,7 @@ a:focus{
 }
 
 .anger-high{
-	background-color: #db243c;
+	background-color: #c11e35;
 }
 
 .disgust-min{

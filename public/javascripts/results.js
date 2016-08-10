@@ -34,7 +34,14 @@ function applyFliter(emotionName){
 			result += sentenceMarkup;
 		}
 	});
+
+	color = "<span class=" + emotionName.toLowerCase() + "-min>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+	color += "<span class=" + emotionName.toLowerCase() + "-low>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+	color += "<span class=" + emotionName.toLowerCase() + "-mid>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+	color += "<span class=" + emotionName.toLowerCase() + "-high>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+
 	$(".tab-pane > p").html(result);
+	$(".rectangle > p").html(color);
 }
 
 function descending(a, b){
